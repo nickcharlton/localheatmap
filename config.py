@@ -5,7 +5,7 @@ from datetime import timedelta
 
 __basedir__ = os.path.abspath(os.path.dirname(__file__))
 
-PROJECT_NAME = 'empty_flask_app'
+PROJECT_NAME = 'localheatmap'
 
 # database
 SQLALCHEMY_DATABASE_URI = 'sqlite:///' + os.path.join(__basedir__, '%s.sqlite',
