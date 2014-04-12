@@ -1,5 +1,45 @@
 {% extends "base.html" %}
 
+{% block css %}
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no' />
+
+<link href='https://api.tiles.mapbox.com/mapbox.js/v1.6.2/mapbox.css' rel='stylesheet' />
+
+<style>
+  body { margin:0; padding:0; }
+  #map { position:absolute; top:0; bottom:0; width:100%; }
+</style>
+{% endblock %}
+
+{% block script %}
+<script src='https://api.tiles.mapbox.com/mapbox.js/v1.6.2/mapbox.js'></script>
+{% endblock %}
+
 {% block content %}
-<p>Hello World!</p>
+<div id='map'></div>
+
+<script>
+var userLocation = [50.724646, -3.534662];
+
+// setup the map
+var map = L.map('map')
+    .setView(userLocation, 9)
+    .addLayer(L.mapbox.tileLayer('nickcharlton.hp778mjp', {
+      detectRetina: true
+    }));
+
+// basic circle options
+var circle_options = {
+    color: '#fff',
+    opacity: 1,
+    weight: 20,
+    fillColor: '#000',
+    fillOpacity: 0.8
+};
+
+// mark the user's location on the map
+var user_circle = L.circle(userLocation, 20, circle_options).addTo(map);
+
+</script>
+
 {% endblock %}
