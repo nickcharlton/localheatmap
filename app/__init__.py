@@ -19,5 +19,5 @@ def server_error(error):
     return render_template('500.html'), 500
 
 
-from app.example.views import mod as exampleModule
-app.register_blueprint(exampleModule)
+from app.heatmap.views import mod as heatmapModule
+app.register_blueprint(heatmapModule)
